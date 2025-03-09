@@ -1,0 +1,35 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<table class="table table-bordered table-striped table-hover" style="width: 900px; margin-left: 100px;" >
+
+
+        <th class="info" style="background-color: lightgreen;">Feedback</th>
+
+        <th class="info" style="background-color: lightgreen;">User Details</th>
+
+      {% for li in l %}
+
+        <tr>
+          <td>{{ li.feed }}</td>
+
+            <td>{{ li.client.user.first_name }}<br>
+
+            {{ li.client.address }}<br>
+            {{ li.client.phone }}<br>
+            {{ li.client.user.email }}</td>
+
+
+
+
+        </tr>
+{% endfor %}
+
+    </table>
+
+
+{% endblock %}
